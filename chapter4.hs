@@ -4,7 +4,7 @@ import Prelude hiding ((||))
 halve :: [a] -> ([a], [a])
 halve xs = splitAt (div (length xs) 2) xs
 
--- Exercise 2
+-- EXERCISE 2
 -- a. Using head and tail
 third1 :: [a] -> a
 third1 xs = head (tail (tail xs))
@@ -17,18 +17,18 @@ third2 xs = xs !! 2
 third3 :: [a] -> a
 third3 (_:_:x:_) = x
 
--- Exercise 3
+-- EXERCISE 3
 safetail :: [a] -> [a]
 safetail xs | null xs = []
             | otherwise = tail xs
 
--- Exercise 4
+-- EXERCISE 4
 (||) :: Bool -> Bool -> Bool
 _ || True = True
 True || _ = True
 _ || _ = False
 
--- Exercise 8
+-- EXERCISE 8
 luhnDouble :: Int -> Int
 luhnDouble x | (2 * x) > 9 = 2 * x - 9
              | otherwise = 2 * x

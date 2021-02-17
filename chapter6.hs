@@ -1,29 +1,29 @@
 import Prelude hiding ((^), (!!), and, concat, replicate, elem)
 
--- Exercise 1
+-- EXERCISE 1
 factorial :: Int -> Int
 factorial n | n < 0 = 0
             | n == 0 = 1
             | otherwise = n * factorial (n - 1)
 
--- Exercise 2
+-- EXERCISE 2
 sumdown :: Int -> Int
 sumdown 0 = 0
 sumdown n = n + sumdown (n - 1)
 
--- Exercise 3
+-- EXERCISE 3
 (^) :: Int -> Int -> Int
 _ ^ 0 = 1
 0 ^ _ = 0
 m ^ n = m * (m ^ (n - 1))
 
--- Exercise 4
+-- EXERCISE 4
 euclid :: Int -> Int -> Int
 euclid m n | m == n = m
            | m < n = euclid m (n - m)
            | m > n = euclid (m - n) n
 
--- Exercise 6 
+-- EXERCISE 6 
 -- a. Decide if all logical values in a list are True
 and :: [Bool] -> Bool
 and [] = True
@@ -51,14 +51,14 @@ elem _ [] = False
 elem n (x:xs) | n == x = True
               | otherwise = elem n xs
 
--- Exercise 7
+-- EXERCISE 7
 merge :: Ord a => [a] -> [a] -> [a]
 merge [] y = y
 merge x [] = x
 merge x' @ (x:xs) y' @ (y:ys) | (x <= y) = x : merge xs y'
                               | otherwise = y : merge x' ys
 
--- Exercise 8
+-- EXERCISE 8
 halve :: [a] -> ([a], [a])
 halve xs = splitAt (div (length xs) 2) xs
 
@@ -69,7 +69,7 @@ msort xs = merge (msort as) (msort bs)
     where as = fst (halve xs)
           bs = snd (halve xs)
 
--- Exercise 9
+-- EXERCISE 9
 -- a. Calculate the sum of a list of numbers
 sumList :: [Int] -> Int
 sumList [] = 0

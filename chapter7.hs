@@ -1,6 +1,6 @@
 import Prelude hiding (all, any, takeWhile, dropWhile, map, filter, curry, uncurry, iterate)
 
--- Exercise 1
+-- EXERCISE 1
 
 -- List comprehension that maps with f each element of the given list that satisfies p
 map_filter_list_comprehension f p xs = [f x | x <- xs, p x]  
@@ -8,7 +8,7 @@ map_filter_list_comprehension f p xs = [f x | x <- xs, p x]
 -- The same function as above done via high-order functions map and filter
 map_filter_high_order f p xs = map f (filter p xs)
 
--- Exercise 2
+-- EXERCISE 2
 all :: (a -> Bool) -> [a] -> Bool
 all f [] = True
 all f (x:xs) | f x = all f xs
@@ -29,7 +29,7 @@ dropWhile _ [] = []
 dropWhile f (x:xs) | f x = dropWhile f xs
                    | otherwise = xs
 
--- Exercise 3
+-- EXERCISE 3
 map :: (a -> b) -> [a] -> [b]
 map f [] = []
 map f xs' @ (x:xs) = foldr (\x xs -> (f x) : xs) [] xs'
@@ -38,11 +38,11 @@ filter :: (a -> Bool) -> [a] -> [a]
 filter p [] = []
 filter p xs' @ (x:xs) = foldr (\x xs -> if p x then x : xs else xs) [] xs'
 
--- Exercise 4
+-- EXERCISE 4
 dec2int :: [Int] -> Int
 dec2int = foldl (\x y -> x * 10 + y) (0)
 
--- Exercise 5
+-- EXERCISE 5
 
 -- Curry redefined
 curry :: ((a, b) -> c) -> (a -> b -> c)
@@ -52,7 +52,7 @@ curry f = \x y -> f (x, y)
 uncurry :: (a -> b -> c) -> ((a, b) -> c)
 uncurry f = \(x, y) -> f x y
 
--- Exercise 6
+-- EXERCISE 6
 
 unfold :: (a -> Bool) -> (a -> b) -> (a -> a) -> a -> [b]
 unfold p h t x | p x       = []
