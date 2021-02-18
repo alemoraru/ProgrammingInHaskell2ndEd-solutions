@@ -65,3 +65,20 @@ map' f = unfold (null) (f . head) (tail)
 -- Redefine iterate using unfold
 iterate :: (a -> a) -> a -> [a]
 iterate f x = x : unfold (\_ -> False) f f x
+
+-- EXERCISE 9
+altMap :: (a -> b) -> (a -> b) -> [a] -> [b]
+altMap f g xs = [if i `mod` 2 == 1 then f x else g x | (x, i) <- zip xs [1..length xs]]
+
+-- An alternative via pattern matching that doesn't require the use of zip
+altMap' :: (a -> b) -> (a -> b) -> [a] -> [b]
+altMap' _ _ [] = []
+altMap' f g (x:xs) = f x : altMap' g f xs
+
+-- EXERCISE 10
+luhnDouble :: Int -> Int
+luhnDouble x = if x < 5 then 2 * x else x * 2 - 9
+
+luhn :: [Int] -> Bool
+luhn [] = False
+luhn xs = mod (sum (altMap luhnDouble id xs)) 10 == 0
