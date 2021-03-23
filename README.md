@@ -15,6 +15,7 @@ This repository contains my solutions to Graham Hutton's Programming in Haskell 
 
 **NOTES**:
 * Solutions were checked manually in ghci, but not via property based testing
-* Some exercises might me missing in some chapters
+* Some programming exercises might be missing as well in some chapters
 * I included only the exercises that could be implemented. There are some other helpful exercises in the book which require just writing stuff down on a paper
+* Some programming exercises might be missing as well in some chapters
 * I am using this repository to document my intro to Haskell programming, therefore it is entirely possible that I did not adhere to some Haskell programming conventions
